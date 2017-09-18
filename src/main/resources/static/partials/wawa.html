@@ -1,0 +1,62 @@
+﻿
+<div class="row justify-content-around" style="margin-top: 80px">
+	<div class="col-4">
+		<iframe width="420" height="325"
+			src="https://www.youtube.com/embed/g1dyA8Lfemc?ecver=2"></iframe>
+	</div>
+	<div class="col-4">
+		<div>
+
+			<ul class="list-group" style="background-color: #e9ecef">
+				<li class="list-group-item list-group-item-secondary">pogoda:
+					{{ctrl.niebo}} <img
+					data-ng-src="http://openweathermap.org/img/w/{{ctrl.pogoda.weather[0].icon}}.png"
+					alt="Description" height="30" width="42" />
+				</li>
+				<li class="list-group-item list-group-item-secondary">temp:
+					{{pogoda.main.temp - 273.15 | number:2}} °C</li>
+				<li class="list-group-item list-group-item-secondary">Godzina:
+					{{ctrl.clock}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<ul class="media-list" style="margin-top: 60px;">
+	<li class="media" data-ng-repeat="comment in cc"
+		data-ng-include="'/partials/comments.html'"></li>
+</ul>
+<h2>Komentarz</h2>
+<form data-ng-submit="ctrl.putNewComment(text, name)">
+	<label for="name">Nick:</label> <input data-ng-model="name" type="text"
+		name="name" maxlength="15" size="15"><br> <label
+		for="comment">Komentarz:</label>
+	<textarea data-ng-model="text" class="form-control" rows="5"
+		id="comment"></textarea>
+	<br /> <input class="btn btn-primary float-right" type="submit"
+		value="odpowiedz">
+</form>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+	<br /> niebo: {{ctrl.pogoda.weather[0].description}}
+	<br /> temp: {{ctrl.pogoda.main.temp - 273.15 | number:2}} °C
+	<br /> ikonka:
+	<img
+		data-ng-src="http://openweathermap.org/img/w/{{ctrl.pogoda.weather[0].icon}}.png"
+		alt="Description" height="42" width="42" />
+	<br />
+
+<p>Godzina: {{ctrl.d}}</p>
+<br />
+<iframe width="420" height="325" src="https://www.youtube.com/embed/g1dyA8Lfemc?ecver=2"></iframe>
+
+
+ -->
